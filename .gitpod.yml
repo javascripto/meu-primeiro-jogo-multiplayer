@@ -1,7 +1,15 @@
 ports:
-  - port: 3000
+  - port: 5000
     onOpen: open-preview
 tasks:
   - before: cd playground/1st-proof-of-concept
     init: npm install
-    command: npm start
+    command: cd 1st-release && npx serve # npm start
+vscode:
+  extensions:
+    - formulahendry.code-runner@0.9.15
+    - naumovs.color-highlight@2.3.0
+    - PKief.material-icon-theme@3.9.2
+    - uloco.theme-bluloco-dark@2.9.3
+    - uloco.theme-bluloco-light@2.9.2
+    - vscode-icons-team.vscode-icons@9.6.0
