@@ -20,6 +20,7 @@
     <script>
         const screen = document.getElementById('screen');
         const context = screen.getContext('2d');
+        const currentPlayerId = 'player1';
 
         const game = {
             players: {
@@ -30,6 +31,17 @@
                 fruit1: { x: 3, y: 1 },
             }
         };
+
+
+        function handleKeydown(event) {
+            const keyPressed = event.key;
+            const player = game.players[currentPlayerId];
+
+            if (keyPressed === 'ArrowUp' && player.y - 1 >= 0) return player.y--;
+            if (keyPressed === 'ArrowDown' && player.y + 1 < screen.height) return player.y++;
+            if (keyPressed === 'ArrowLeft' && player.x - 1 >= 0) return player.x--;
+            if (keyPressed === 'ArrowRight' && player.x + 1 < screen.width) return player.x++;
+        }
 
         function renderScreen() {
             context.clearRect(0, 0, screen.width, screen.height);
@@ -50,6 +62,8 @@
         }
 
         renderScreen();
+        document.addEventListener('keydown', handleKeydown);
+
         // npx serve
     </script>
 </body>
