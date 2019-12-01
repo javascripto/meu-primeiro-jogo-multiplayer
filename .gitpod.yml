@@ -2,9 +2,9 @@ ports:
   - port: 5000
     onOpen: open-preview
 tasks:
-  - before: cd playground/1st-proof-of-concept
-    init: npm install
-    command: cd 1st-release && npx serve # npm start
+  - before: cd playground/1st-release
+    # init: npm install
+    command: npx serve # npm start
 vscode:
   extensions:
     - formulahendry.code-runner@0.9.15
